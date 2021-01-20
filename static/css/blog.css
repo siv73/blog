@@ -1,0 +1,65 @@
+.content{
+    color:white;
+    width: 75%;
+    float: right;
+    padding: 30px 0 0 30px;
+    background: rgb(130, 201, 63);
+}
+
+.sidebar{
+    color:blue;
+    width: 25%;
+    float: left;
+    padding: 30px;
+    background: rgb(130, 201, 63);
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid yellow;
+    padding-bottom: 10px;
+}
+
+body{
+    background: rgb(130, 201, 63);
+}
+
+#post{
+    color:bisque;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.share{
+    padding-left: 50px;
+}
+
+input[type='text']{
+    background-color: brown;
+    content: white;
+}
+
+.cb {
+    color:brown;
+}
+p{
+    color: rgb(196, 255, 216);
+}
+.tag-box{
+    border:1px solid;
+    
+}
+/* h2{
+    text-align: center;
+} */
+
+/* a{
+    color:black;
+} */
+
+/* li{
+    text-align: center;
+} */
+hr{
+   color:rgb(130, 201, 63); 
+}

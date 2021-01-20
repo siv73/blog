@@ -1,0 +1,12 @@
+<ul>
+    {% for entry in latest_posts %}
+        <li><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></li>
+
+    {% endfor %}
+</ul>
+
+<ul>
+    {%for entry in most%}
+    <li><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></li>
+    {%endfor%}
+</ul>

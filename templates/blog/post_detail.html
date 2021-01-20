@@ -1,0 +1,66 @@
+{%extends "blog/base.html"%}
+    {%block title_block%}
+        {{post.title|title}}
+    {%endblock%}
+
+    {%block content%}
+        
+            <h1>{{post.title|title}}</h1>
+            <hr>
+            <h4>Tags: {{post.tags.all|join:', '}}</h4>
+            <p id="post">Published on {{post.publish}} by {{post.author|title}}</p>
+            <p>{{post.body}}</p>
+            <a href="/share/{{post.id}}" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>Share Post by Email</a>
+
+            <hr>
+
+            {%with comments.count as com_count%}
+            <!-- <div >
+                <p class="font-weight-bold">Total number of comments: <span style="font-style: bold;">{{com_count}}</span></p>
+            </div> -->
+                <h2>{{com_count}} Comment{{com_count|pluralize}}</h2>
+            {%endwith%}
+
+            {%if comments%}
+
+                {%for comment in comments%}
+                    <div class="bg-success">
+                        <p id="comment">Comment {{forloop.counter}} submitted by 
+                            <span style="font-style:italic;">{{comment.name}}</span>
+                            on {{comment.updated}}
+                        </p>
+                    <!-- </div> -->
+                    <hr>
+                        <div class="cb">
+                            {{comment.comments|linebreaks}}
+                        </div>
+                        <!-- <hr> -->
+                    </div>
+                {%endfor%}
+            {%else%}
+                    <p>There are no comments here</p>
+
+            {%endif%}
+            
+
+                
+            
+            {%if submitted%}
+                <p>Congrats! You've submitted your comment!</p>
+            {%else%}
+                <form method="POST">
+                    <table>
+                        {{form}}
+                        
+                    </table>
+                    <div class="comment">
+                        <input type="submit" class="btn btn-success btn-lg" value="Submit Comment">
+                    </div>
+                    
+                    {%csrf_token%}
+                    
+
+                </form>
+            {%endif%}
+
+    {%endblock%}

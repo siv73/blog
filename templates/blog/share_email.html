@@ -1,0 +1,26 @@
+
+{%extends "blog/base.html"%}
+{%block title_block%}
+    Share Post by Email
+{%endblock%}
+
+{%block content%}
+    {%if not sent%}
+        <h1>Share "{{post.title}}" by email!</h1>
+        <form method="POST">
+            <table>
+                {{form}}
+
+            </table>
+            
+            {%csrf_token%}
+            <div class="share">
+                <input type="submit" value="Send Email" class="btn btn-primary btn-lg" >
+            </div>
+
+            
+        </form>
+    {%else%}
+        <h2>Email sent successfully!</h2>
+    {%endif%}
+{%endblock%}
